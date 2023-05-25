@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import dawi.project.entity.MarcaModel;
 
-public interface MarcaRepository extends JpaRepository<MarcaModel, Integer>{
+public interface MarcaDAO extends JpaRepository<MarcaModel, Integer> {
+	
 
 }

@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import dawi.project.entity.ProductoModel;
 
-public interface ProductoRepository extends JpaRepository<ProductoModel, Integer>{
+public interface ProductoDAO extends JpaRepository<ProductoModel, Integer> {
+
 
 }

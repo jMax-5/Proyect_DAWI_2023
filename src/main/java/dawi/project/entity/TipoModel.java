@@ -12,37 +12,41 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "tipo")
+@Table(name="tipo")
 public class TipoModel {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idtipo;
+	private Integer idtipo;
 	private String descripcion;
 	
-	@JsonIgnore
 	@OneToMany(mappedBy = "tipo")
-	private List<ProductoModel> listaTipo;
-	
-	
-	public List<ProductoModel> getListaTipo() {
-		return listaTipo;
-	}
-	public void setListaTipo(List<ProductoModel> listaTipo) {
-		this.listaTipo = listaTipo;
-	}
-	public int getIdtipo() {
+	@JsonIgnore
+	private List<ProductoModel> tblistatipo;
+
+	public Integer getIdtipo() {
 		return idtipo;
 	}
-	public void setIdtipo(int idtipo) {
+
+	public void setIdtipo(Integer idtipo) {
 		this.idtipo = idtipo;
 	}
+
 	public String getDescripcion() {
 		return descripcion;
 	}
+
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-	
-	
+
+	public List<ProductoModel> getTblistatipo() {
+		return tblistatipo;
+	}
+
+	public void setTblistatipo(List<ProductoModel> tblistatipo) {
+		this.tblistatipo = tblistatipo;
+	}
+
 	
 }

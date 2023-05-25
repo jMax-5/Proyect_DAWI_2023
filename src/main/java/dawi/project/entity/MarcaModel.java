@@ -1,6 +1,5 @@
 package dawi.project.entity;
 
-
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -13,33 +12,23 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "marca")
+@Table(name="marca")
 public class MarcaModel {
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idmarca;
-	
+	private Integer idmarca;
 	private String descripcion;
 	
+	@OneToMany(mappedBy = "marca")
 	@JsonIgnore
-	@OneToMany(mappedBy = "marc")
-	private List<ProductoModel> listaMarca;
+	private List<ProductoModel> tblistaMarca;
 
-
-	public List<ProductoModel> getListaMarca() {
-		return listaMarca;
-	}
-
-	public void setListaMarca(List<ProductoModel> listaMarca) {
-		this.listaMarca = listaMarca;
-	}
-
-	public int getIdmarca() {
+	public Integer getIdmarca() {
 		return idmarca;
 	}
 
-	public void setIdmarca(int idmarca) {
+	public void setIdmarca(Integer idmarca) {
 		this.idmarca = idmarca;
 	}
 
@@ -50,8 +39,16 @@ public class MarcaModel {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
+
+	public List<ProductoModel> getTblistaMarca() {
+		return tblistaMarca;
+	}
+
+	public void setTblistaMarca(List<ProductoModel> tblistaMarca) {
+		this.tblistaMarca = tblistaMarca;
+	}
+
 	
 	
-	
-	
+
 }

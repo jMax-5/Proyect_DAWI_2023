@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import dawi.project.entity.TipoModel;
 
-public interface TipoRepository extends JpaRepository<TipoModel, Integer> {
+public interface TipoDAO extends JpaRepository<TipoModel, Integer> {
+	
 
 }

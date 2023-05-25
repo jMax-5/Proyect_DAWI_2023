@@ -5,25 +5,25 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import dawi.project.dao.TipoDAO;
-import dawi.project.entity.TipoModel;
+import dawi.project.dao.ProveedorDAO;
+import dawi.project.entity.ProveedorModel;
 
 @Service
-public class TipoService {
+public class ProveedorService {
 	
 	@Autowired
-	private TipoDAO repo;
+	private ProveedorDAO repo;
 	
 	
-	public void grabar(TipoModel m) {
+	public void grabar(ProveedorModel m) {
 		repo.save(m);
 	}
 	
-	public List<TipoModel> listarTipo(){
+	public List<ProveedorModel> listarProveedor(){
 		return repo.findAll();
 	}
 	
-	public void actualizar(TipoModel m) {
+	public void actualizar(ProveedorModel m) {
 		repo.save(m);
 	}
 	
@@ -31,7 +31,7 @@ public class TipoService {
 		repo.deleteById(cod);
 	}
 	
-	public TipoModel buscar(int cod) {
+	public ProveedorModel buscar(int cod) {
 		return repo.findById(cod).orElse(null);
 	}
 	

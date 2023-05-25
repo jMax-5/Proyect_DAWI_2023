@@ -1,5 +1,6 @@
 package dawi.project.entity;
 
+
 import java.time.LocalDate;
 
 import jakarta.persistence.Entity;
@@ -11,30 +12,45 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "producto")
+@Table(name="producto")
 public class ProductoModel {
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idproducto;
-	private String descripcion;
-	private LocalDate fechaVencimiento;
-	private int stockMinimo;
-	private int stockActual;
+	private Integer idproducto;
 
+	private String descripcion;
+	private int stock_minimo;
+	private int stock_actual;
+	private LocalDate fecha;
+	
 	@ManyToOne
-	@JoinColumn(name = "idtipo")
+	@JoinColumn(name="idtipo")
 	private TipoModel tipo;
 	
 	@ManyToOne
-	@JoinColumn(name = "idmarca")
-	private MarcaModel marc;
+	@JoinColumn(name="idmarca")
+	private MarcaModel marca;
+	
+	@ManyToOne
+	@JoinColumn(name="proveedor_idproveedor")
+	private ProveedorModel proveedor;
 
-	public int getIdproducto() {
+
+
+	public ProveedorModel getProveedor() {
+		return proveedor;
+	}
+
+	public void setProveedor(ProveedorModel proveedor) {
+		this.proveedor = proveedor;
+	}
+
+	public Integer getIdproducto() {
 		return idproducto;
 	}
 
-	public void setIdproducto(int idproducto) {
+	public void setIdproducto(Integer idproducto) {
 		this.idproducto = idproducto;
 	}
 
@@ -46,28 +62,30 @@ public class ProductoModel {
 		this.descripcion = descripcion;
 	}
 
-	public LocalDate getFechaVencimiento() {
-		return fechaVencimiento;
+	
+
+	public int getStock_minimo() {
+		return stock_minimo;
 	}
 
-	public void setFechaVencimiento(LocalDate fechaVencimiento) {
-		this.fechaVencimiento = fechaVencimiento;
+	public void setStock_minimo(int stock_minimo) {
+		this.stock_minimo = stock_minimo;
 	}
 
-	public int getStockMinimo() {
-		return stockMinimo;
+	public int getStock_actual() {
+		return stock_actual;
 	}
 
-	public void setStockMinimo(int stockMinimo) {
-		this.stockMinimo = stockMinimo;
+	public void setStock_actual(int stock_actual) {
+		this.stock_actual = stock_actual;
 	}
 
-	public int getStockActual() {
-		return stockActual;
+	public LocalDate getFecha() {
+		return fecha;
 	}
 
-	public void setStockActual(int stockActual) {
-		this.stockActual = stockActual;
+	public void setFecha(LocalDate fecha) {
+		this.fecha = fecha;
 	}
 
 	public TipoModel getTipo() {
@@ -78,13 +96,14 @@ public class ProductoModel {
 		this.tipo = tipo;
 	}
 
-	public MarcaModel getMarc() {
-		return marc;
+	public MarcaModel getMarca() {
+		return marca;
 	}
 
-	public void setMarc(MarcaModel marc) {
-		this.marc = marc;
+	public void setMarca(MarcaModel marca) {
+		this.marca = marca;
 	}
+
 	
 	
 
